@@ -26,7 +26,7 @@ let images = [
 ]
 
 let counter = 0;
-
+let indexofimage;
 
 jumptofirst.addEventListener("click", ()=>{
    
@@ -44,7 +44,7 @@ jusmptolast.addEventListener("click", ()=>{
  checking(counter)
 })
 next.addEventListener("click",()=>{
-    if(indexofimage != 4)
+    if(counter != 4)
         previous.classList.remove("disable")
     counter++
       heading1.textContent = ""
@@ -53,7 +53,7 @@ next.addEventListener("click",()=>{
     checking(counter)
 })
 previous.addEventListener("click",()=>{
-    if(indexofimage != 0)
+    if(counter != 0)
         previous.classList.remove("disable")
     counter--
       heading1.textContent = ""
@@ -61,25 +61,18 @@ previous.addEventListener("click",()=>{
     displayimage(counter);
     checking(counter)
 })
-function checking(indexofimage){
-    if(indexofimage == 0)
+function checking(counter){
+    if(counter == 0)
         previous.classList.add("disable")
-    else if (indexofimage == 4)
+    else if (counter == 4)
         next.classList.add("disable")
 }
 
-function displayimage(indexofimage){
-   switch(indexofimage0)
-   {
-    case 0:displaybox.classList.add("red")
-    break
-    case 1:displaybox.classList.add("purple")
-    break
-    case 2:displaybox.classList.add("blue")
-    break
-    case 3:displaybox.classList.add("green")
-    break
-    case 4:displaybox.classList.add("orange")
-    break
-   }
+function displayimage(counter){
+   images.forEach(e =>{
+    if(e.id == counter)
+        displaybox.classList.add(e.color)
+    else
+        displaybox.classList.remove(e.color)
+   })
 };
